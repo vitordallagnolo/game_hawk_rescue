@@ -359,3 +359,10 @@ function start() {
     } // Fechamento da função Game Over
 } // Fechamento da função principal start()
 
+// Função que reinicia o jogo
+function reiniciaJogo() {
+    somGameover.pause();
+    $("#fim").remove();
+    start();
+} // Fechamento da função reinigiaJogo
+
