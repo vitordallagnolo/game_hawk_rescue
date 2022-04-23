@@ -334,8 +334,28 @@ function start() {
             $("#energia").css("background-image", "url(src/imgs/energia1.png)")
         }// Vida em 1
         if (energiaAtual == 0) {
-            $("#energia").css("background-image", "url(src/imgs/energia2.png)")
+            $("#energia").css("background-image", "url(src/imgs/energia0.png)")
+            gameOver();
         }// Game Over
     } // Fechamento da função energia
+
+    // Função GAME OVER
+    function gameOver() {
+        fimdejogo = true;
+        musica.pause()
+        somGameover.play();
+
+        window.clearInterval(jogo.timer);
+        jogo.timer = null;
+
+        $("#jogador").remove();
+        $("#inimigo1").remove();
+        $("#inimigo2").remove();
+        $("#amigo").remove();
+
+        $("#fundoGame").append("<div id='fim'></div>");
+
+        $("#fim").html("<h1> Game Over </h1><p>Sua pontuação foi: " + pontos + "</p>" + "<div id='reinicia' onClick = reiniciaJogo()><h3>Jogar Novamente</h3></div>"); 
+    } // Fechamento da função Game Over
 } // Fechamento da função principal start()
 
